@@ -3,8 +3,6 @@ using IntegrationDashboard.Providers;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IntegrationDashboard.Controllers
@@ -13,6 +11,9 @@ namespace IntegrationDashboard.Controllers
     {
         public async Task<Dictionary<User, int>> GetTopBuildersBreakers(string project)
         {
+            if (string.IsNullOrEmpty(project))
+                throw new ArgumentException(project);
+
             TeamcityProvider provider = new TeamcityProvider();
             JObject value = await provider.GetBuilds(project);
 

@@ -13,7 +13,7 @@ namespace IntegrationDashboard.Providers
         internal async Task<JObject> GetBuilds(string project)
         {
             if (string.IsNullOrEmpty(project))
-                throw new ArgumentNullException("project");
+                throw new ArgumentException("project");
 
             string url = "URL here";
 

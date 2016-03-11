@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="IntegrationDashboard.TeamcityTops"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IntegrationDashboard"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="829*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="SettingsImage" Margin="0,0,45,50" Source="ms-appx:///Assets/settings.png" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" HorizontalAlignment="Right" Width="100" Grid.Column="1" Height="100" VerticalAlignment="Bottom"/>
+        <Canvas HorizontalAlignment="Left" Margin="35,36,0,0" Width="455" Grid.ColumnSpan="2" Height="994" VerticalAlignment="Top">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Build Breakers" FontSize="64" FontFamily="Comic Sans MS" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Height="91" Width="459" Canvas.Left="-4" HorizontalAlignment="Left"/>
+            <ListView x:Name="TopBreakersView" UseLayoutRounding="False" d:LayoutRounding="Auto" HorizontalAlignment="Left" Width="448.214" Height="885" VerticalAlignment="Top" Canvas.Left="8.117" Canvas.Top="96.417">
+                <ListView.RenderTransform>
+                    <CompositeTransform SkewX="-0.317" TranslateX="-0.014"/>
+                </ListView.RenderTransform>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="{Binding Key.Photo}" Width="128px" Height="128px" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding Key.Name}" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Value}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Canvas>
+
+    </Grid>
+</Page>

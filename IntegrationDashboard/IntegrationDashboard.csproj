@@ -99,7 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\TeamcityController.cs" />
-    <Compile Include="GitTops.xaml.cs">
+    <Compile Include="Views\GitTops.xaml.cs">
       <DependentUpon>GitTops.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
@@ -109,7 +109,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\GitProvider.cs" />
     <Compile Include="Providers\TeamcityProvider.cs" />
-    <Compile Include="TeamcityTops.xaml.cs">
+    <Compile Include="Views\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeamcityTops.xaml.cs">
       <DependentUpon>TeamcityTops.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -120,6 +123,8 @@
     <None Include="IntegrationDashboard_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\settings.png" />
+    <Content Include="Assets\back.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -134,7 +139,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GitTops.xaml">
+    <Page Include="Views\GitTops.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,7 +147,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TeamcityTops.xaml">
+    <Page Include="Views\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeamcityTops.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

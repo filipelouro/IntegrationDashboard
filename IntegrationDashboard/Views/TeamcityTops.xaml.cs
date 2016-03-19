@@ -1,4 +1,5 @@
 ﻿using IntegrationDashboard.Model;
+using IntegrationDashboard.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace IntegrationDashboard
+namespace IntegrationDashboard.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -43,5 +44,9 @@ namespace IntegrationDashboard
             TopBreakersView.ItemsSource = teste;
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
     }
 }

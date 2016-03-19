@@ -8,13 +8,32 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">
-        <TextBlock x:Name="SettingsLabel" HorizontalAlignment="Left" Margin="60,60,0,0" TextWrapping="Wrap" Text="Settings" VerticalAlignment="Top" FontSize="96"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="60,259,0,0" TextWrapping="Wrap" Text="Teamcity" VerticalAlignment="Top" FontSize="64" BorderThickness="0"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="366,441,0,0" VerticalAlignment="Top" Width="953" Height="71" FontSize="32"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="191,441,0,0" TextWrapping="Wrap" Text="Project" VerticalAlignment="Top" FontSize="48"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="232,558,0,0" TextWrapping="Wrap" Text="Build" VerticalAlignment="Top" FontSize="48"/>
-        <ComboBox x:Name="comboBox_Copy" HorizontalAlignment="Left" Margin="366,558,0,0" VerticalAlignment="Top" Width="953" Height="71" FontSize="32"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="163" Margin="1706,875,0,0" VerticalAlignment="Top" Width="168" Source="ms-appx:///Assets/back.png"/>
+        <TextBlock x:Name="SettingsLabel" Margin="60,60,1746,0" TextWrapping="Wrap" Text="Settings" VerticalAlignment="Top" FontSize="32"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="104,329,0,0" TextWrapping="Wrap" Text="Teamcity" VerticalAlignment="Top" FontSize="26.667" BorderThickness="0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsTapEnabled="False" IsRightTapEnabled="False"/>
+        <ComboBox x:Name="teamcityProject" HorizontalAlignment="Left" Margin="220,509,0,0" VerticalAlignment="Top" Width="722" Height="32" FontSize="15" PlaceholderText="Please Select Project"/>
+        <ComboBox x:Name="teamcityBuild" HorizontalAlignment="Left" Margin="220,546,0,0" VerticalAlignment="Top" Width="722" Height="32" FontSize="15" PlaceholderText="Please Select Build"/>
+        <PasswordBox x:Name="teamcityPassword" HorizontalAlignment="Left" Margin="220,437,0,0" VerticalAlignment="Top" Width="209" PlaceholderText="Password"/>
+        <TextBox x:Name="teamcityUsername" HorizontalAlignment="Left" Margin="220,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="209" PlaceholderText="Username" AcceptsReturn="True"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Margin="104,621,0,0" TextWrapping="Wrap" Text="Gitlab" VerticalAlignment="Top" FontSize="26.667" BorderThickness="0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False"/>
+        <ComboBox x:Name="gitProject" HorizontalAlignment="Stretch" Margin="220,798,978,0" VerticalAlignment="Top" Height="32" FontSize="15" PlaceholderText="Please Select Project"/>
+        <PasswordBox x:Name="gitpassword" HorizontalAlignment="Left" Margin="220,729,0,0" VerticalAlignment="Top" Width="209" PlaceholderText="Password"/>
+        <TextBox x:Name="gitusername" HorizontalAlignment="Left" Margin="220,692,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="209" PlaceholderText="Username" AcceptsReturn="True"/>
+        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Margin="104,170,0,0" TextWrapping="Wrap" Text="General Settings" VerticalAlignment="Top" FontSize="26.667" BorderThickness="0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsTapEnabled="False" IsRightTapEnabled="False"/>
+        <ComboBox x:Name="rotationTime" HorizontalAlignment="Left" Margin="220,240,0,0" VerticalAlignment="Top" Width="209" Height="32" FontSize="15" PlaceholderText="Slide Rotation (seconds)">
+            <x:Int32>10</x:Int32>
+            <x:Int32>30</x:Int32>
+            <x:Int32>60</x:Int32>
+            <x:Int32>120</x:Int32>
+        </ComboBox>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Right" Margin="0,0,45,45" VerticalAlignment="Bottom" FontSize="32" Width="164" Height="62" Click="backButton_Click"/>
+        <TextBox x:Name="lbl_teamcityUsername" HorizontalAlignment="Left" Margin="133,400,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" IsReadOnly="True" BorderThickness="0" TextAlignment="Right"/>
+        <TextBox x:Name="lbl_teamcityPassword" HorizontalAlignment="Left" Margin="137,437,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" BorderThickness="0" IsReadOnly="True" TextAlignment="Right"/>
+        <TextBox x:Name="lbl_teamcityProject" HorizontalAlignment="Left" Margin="153,509,0,0" TextWrapping="Wrap" Text="Project" VerticalAlignment="Top" BorderThickness="0" IsReadOnly="True" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" TextAlignment="Right"/>
+        <TextBox x:Name="lbl_teamcityBuild" HorizontalAlignment="Left" Margin="154,546,0,0" TextWrapping="Wrap" Text="Build" VerticalAlignment="Top" TextAlignment="Right" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" IsReadOnly="True" BorderThickness="0"/>
+        <TextBox x:Name="lbl_gitUsername" HorizontalAlignment="Left" Margin="131,692,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" BorderThickness="0" TextAlignment="Right"/>
+        <TextBox x:Name="lbl_gitPassword" HorizontalAlignment="Left" Margin="136,729,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" IsReadOnly="True" BorderThickness="0" TextAlignment="Right"/>
+        <TextBox x:Name="lbl_gitProject" HorizontalAlignment="Left" Margin="151,798,0,0" TextWrapping="Wrap" Text="Project" VerticalAlignment="Top" BorderThickness="0" TextAlignment="Right"/>
+        <TextBox x:Name="lbl_SlideRotation" HorizontalAlignment="Left" Margin="107,240,0,0" TextWrapping="Wrap" Text="Slide Rotation" VerticalAlignment="Top" BorderThickness="0" IsReadOnly="True" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False"/>
 
     </Grid>
 </Page>

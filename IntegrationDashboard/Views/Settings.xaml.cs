@@ -26,5 +26,15 @@ namespace IntegrationDashboard.Views
         {
             this.InitializeComponent();
         }
+
+        private void textBlock_Copy2_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

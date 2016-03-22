@@ -1,44 +1,64 @@
-﻿using System.Collections.Generic;
+﻿using IntegrationDashboard.Views;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace IntegrationDashboard
 {
     class SliderEngine
     {
-        private List<Page> pagesList;
-        private bool IsRunning = false;
         private Task sliderWorker;
-        private Frame rootFrame;
-
-        public SliderEngine(List<Page> pagesList, Frame rootFrame)
-        {
-            this.pagesList = pagesList;
-            this.rootFrame = rootFrame;
-        }
+        private CancellationToken cancelToken;
+        private CancellationTokenSource tokenSource;
 
         public void Stop()
         {
-            IsRunning = false;
+            tokenSource.Cancel();
         }
 
         public void Start()
         {
-            sliderWorker = Task.Run(() => SliderWorker());
-            sliderWorker.Start();
+            tokenSource = new CancellationTokenSource();
+            cancelToken = tokenSource.Token;
+
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+
+                Window.Current.Content = rootFrame;
+            }
+
+            if (rootFrame.Content == null)
+            {
+                sliderWorker = Task.Factory.StartNew(() => SliderWorker(rootFrame,cancelToken), cancelToken);
+                sliderWorker.Wait();
+            }
         }
 
-        public async void SliderWorker()
-        {
-            while (IsRunning)
-            {
-                foreach (Page page in pagesList)
+        private async void SliderWorker(Frame rootFrame,CancellationToken token)
+        {     
+                List<System.Type> pagesList = new List<Type>();
+                pagesList.Add(typeof(TeamcityTops));
+                pagesList.Add(typeof(Settings));
+
+                while (true)
                 {
-                    this.rootFrame.Navigate(page.GetType());
-                    await Task.Delay(30000);
+                    if (token.IsCancellationRequested)
+                        break;
+
+                    foreach (System.Type page in pagesList)
+                    {
+                        rootFrame.Navigate(page);
+                        Window.Current.Activate();
+                        await Task.Delay(30000);
+                    }
                 }
             }
         }
 
     }
-}
